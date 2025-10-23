@@ -1,78 +1,267 @@
-# MERN Stack Integration Assignment
+# MERN Stack Blog Application
 
-This assignment focuses on building a full-stack MERN (MongoDB, Express.js, React.js, Node.js) application that demonstrates seamless integration between front-end and back-end components.
+A full-stack blog application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) that demonstrates seamless integration between front-end and back-end components. This project showcases modern web development practices including database operations, API communication, state management, authentication, and file uploads.
 
-## Assignment Overview
+## 🚀 Features
 
-You will build a blog application with the following features:
-1. RESTful API with Express.js and MongoDB
-2. React front-end with component architecture
-3. Full CRUD functionality for blog posts
-4. User authentication and authorization
-5. Advanced features like image uploads and comments
+### Core Functionality
+- **Blog Post Management**: Create, read, update, and delete blog posts
+- **Category System**: Organize posts by categories (Technology, Travel, Lifestyle, Food)
+- **User Authentication**: Registration, login, and protected routes
+- **Image Uploads**: Featured images for blog posts with file validation
+- **Responsive Design**: Mobile-first approach with TailwindCSS
+- **Search & Filtering**: Find posts by category or search terms
+- **Pagination**: Efficient loading of large post lists
 
-## Project Structure
+### Technical Features
+- **RESTful API**: Well-structured Express.js API with proper error handling
+- **JWT Authentication**: Secure token-based authentication system
+- **Input Validation**: Server-side validation using Joi and express-validator
+- **File Upload**: Multer integration for image handling
+- **State Management**: React Context API for global state
+- **Custom Hooks**: Reusable hooks for API calls and data fetching
+- **TypeScript**: Type-safe development on the front-end
+
+## 🛠️ Tech Stack
+
+### Backend
+- **Node.js** - JavaScript runtime
+- **Express.js** - Web application framework
+- **MongoDB** - NoSQL database
+- **Mongoose** - MongoDB object modeling
+- **JWT** - JSON Web Tokens for authentication
+- **bcryptjs** - Password hashing
+- **Multer** - File upload handling
+- **Joi** - Data validation
+- **express-validator** - Request validation middleware
+
+### Frontend
+- **React 19** - UI library with hooks
+- **TypeScript** - Type-safe JavaScript
+- **Vite** - Fast build tool and dev server
+- **React Router** - Client-side routing
+- **TailwindCSS** - Utility-first CSS framework
+- **Axios** - HTTP client for API calls
+- **React Hook Form** - Form handling with validation
+- **Yup** - Schema validation for forms
+
+### Development Tools
+- **Nodemon** - Auto-restart for development
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+
+## 📁 Project Structure
 
 ```
-mern-blog/
-├── client/                 # React front-end
-│   ├── public/             # Static files
-│   ├── src/                # React source code
-│   │   ├── components/     # Reusable components
-│   │   ├── pages/          # Page components
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── services/       # API services
-│   │   ├── context/        # React context providers
-│   │   └── App.jsx         # Main application component
-│   └── package.json        # Client dependencies
-├── server/                 # Express.js back-end
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Route controllers
-│   ├── models/             # Mongoose models
-│   ├── routes/             # API routes
-│   ├── middleware/         # Custom middleware
-│   ├── utils/              # Utility functions
-│   ├── server.js           # Main server file
-│   └── package.json        # Server dependencies
-└── README.md               # Project documentation
+mern-stack-integration-Breezy-Reese/
+├── client/                          # React frontend
+│   ├── public/
+│   ├── src/
+│   │   ├── components/              # Reusable components
+│   │   ├── context/                 # React Context providers
+│   │   ├── hooks/                   # Custom React hooks
+│   │   ├── pages/                   # Page components
+│   │   ├── services/                # API service functions
+│   │   └── assets/                  # Static assets
+│   ├── package.json
+│   └── vite.config.ts
+├── server/                          # Express backend
+│   ├── controllers/                 # Route controllers
+│   ├── middleware/                  # Custom middleware
+│   ├── models/                      # Mongoose models
+│   ├── routes/                      # API routes
+│   ├── uploads/                     # Uploaded images
+│   ├── db.js                        # Database connection
+│   ├── server.js                    # Main server file
+│   └── package.json
+├── Week4-Assignment.md              # Assignment requirements
+├── TODO.md                          # Current tasks
+└── README.md                        # This file
 ```
 
-## Getting Started
+## 🏗️ Setup Instructions
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week4-Assignment.md` file
-4. Complete the tasks outlined in the assignment
-
-## Files Included
-
-- `Week4-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Configuration files
-  - Sample models and components
-
-## Requirements
-
+### Prerequisites
 - Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Git
+- MongoDB (local installation or MongoDB Atlas)
+- npm or yarn package manager
 
-## Submission
+### Installation
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd mern-stack-integration-Breezy-Reese
+   ```
 
-1. Complete both the client and server portions of the application
-2. Implement all required API endpoints
-3. Create the necessary React components and hooks
-4. Document your API and setup process in the README.md
-5. Include screenshots of your working application
+2. **Set up the backend**
+   ```bash
+   cd server
+   npm install
+   ```
 
-## Resources
+3. **Set up the frontend**
+   ```bash
+   cd ../client
+   npm install
+   ```
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [Express.js Documentation](https://expressjs.com/)
-- [React Documentation](https://react.dev/)
-- [Node.js Documentation](https://nodejs.org/en/docs/)
-- [Mongoose Documentation](https://mongoosejs.com/docs/) 
+4. **Environment Variables**
+
+   Create `.env` files in both `server/` and `client/` directories.
+
+   **Server (.env)**
+   ```env
+   PORT=5000
+   MONGO_URI=mongodb://localhost:27017/mern-blog
+   JWT_SECRET=your-super-secret-jwt-key
+   NODE_ENV=development
+   ```
+
+   **Client (.env)**
+   ```env
+   VITE_API_URL=http://localhost:5000/api
+   ```
+
+5. **Seed the database**
+   ```bash
+   cd server
+   npm run seed
+   ```
+
+6. **Start the development servers**
+
+   **Terminal 1 - Backend**
+   ```bash
+   cd server
+   npm run dev
+   ```
+
+   **Terminal 2 - Frontend**
+   ```bash
+   cd client
+   npm run dev
+   ```
+
+7. **Access the application**
+   - Frontend: http://localhost:5173
+   - Backend API: http://localhost:5000
+
+## 📚 API Documentation
+
+### Authentication Endpoints
+
+#### POST /api/auth/register
+Register a new user account.
+```json
+{
+  "username": "johndoe",
+  "email": "john@example.com",
+  "password": "password123",
+  "firstName": "John",
+  "lastName": "Doe"
+}
+```
+
+#### POST /api/auth/login
+Authenticate user and return JWT token.
+```json
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+```
+
+### Post Endpoints
+
+#### GET /api/posts
+Get all published posts with pagination.
+- Query parameters: `page`, `limit`, `category`, `search`
+
+#### GET /api/posts/:id
+Get a specific post by ID.
+
+#### POST /api/posts
+Create a new post (requires authentication).
+```json
+{
+  "title": "Post Title",
+  "content": "Post content...",
+  "excerpt": "Brief description",
+  "category": "category-id",
+  "tags": ["tag1", "tag2"],
+  "featuredImage": "image-file"
+}
+```
+
+#### PUT /api/posts/:id
+Update an existing post (requires authentication).
+
+#### DELETE /api/posts/:id
+Delete a post (requires authentication).
+
+### Category Endpoints
+
+#### GET /api/categories
+Get all categories.
+
+#### POST /api/categories
+Create a new category (admin only).
+```json
+{
+  "name": "Technology",
+  "slug": "technology",
+  "description": "Latest in tech",
+  "color": "#007bff"
+}
+```
+
+## 🎨 Screenshots
+
+*Add screenshots of your application here showing the main pages, post creation form, and responsive design.*
+
+## 🔧 Available Scripts
+
+### Server
+- `npm start` - Start production server
+- `npm run dev` - Start development server with nodemon
+- `npm run seed` - Seed database with sample data
+
+### Client
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🚀 Deployment
+
+### Backend Deployment
+1. Set up MongoDB database (local or cloud)
+2. Configure environment variables
+3. Build and deploy to hosting service (Heroku, Railway, etc.)
+
+### Frontend Deployment
+1. Build the application: `npm run build`
+2. Deploy the `dist` folder to hosting service (Vercel, Netlify, etc.)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📝 License
+
+This project is licensed under the ISC License.
+
+## 🙏 Acknowledgments
+
+- Built as part of Week 4 MERN Stack Integration assignment
+- Inspired by modern blog platforms and best practices
+- Uses open-source libraries and frameworks
+
+---
+
+**Note**: This is a learning project demonstrating MERN stack integration. For production use, additional security measures and optimizations would be recommended.
